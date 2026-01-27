@@ -148,6 +148,72 @@ button:hover {
     box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3)
 }
 
+/* Music Player Card */
+.music-player {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px 10px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.music-player:hover {
+    background: rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.player-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    display: block;
+    opacity: 0.8;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-status {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.player-track {
+    font-size: 0.85em;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+/* Playing Animation State */
+.music-playing .player-icon svg {
+    opacity: 1;
+}
+
+.music-playing .player-status {
+    color: #4ade80;
+    /* Subtle green accent for status */
+    opacity: 1;
+}
+
 /* Responsivo */
 @media(max-width:768px) {
     .carousel {
@@ -170,6 +236,13 @@ button:hover {
 
     .next {
         transform: translate(150px) scale(.85) rotateY(-20deg)
+    }
+
+    .music-control {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
     }
 }
 

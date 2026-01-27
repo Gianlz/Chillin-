@@ -47,7 +47,63 @@ const g = n => {
 [['headphones_green.png', 'G'], ['woman_headphones.png', 'W'], ['cable_beige.png', 'C']].forEach((d, i) =>
     k.innerHTML += `<div class="carousel-slide" onclick="c!=${i}&&g(${i})"><img src="images/${d[0]}" alt="${d[1]}"></div>`);
 
-onload = () => { g(1); document.querySelector('button').onclick = e => e.target.animate([{ transform: 'scale(.95)' }, {}], 150) };
+// Audio Logic & Initialization
+onload = () => {
+    g(1);
+
+    // CTA Button
+    const cta = document.getElementById('ctaButton');
+    if (cta) cta.onclick = e => e.target.animate([{ transform: 'scale(.95)' }, {}], 150);
+
+    // Smooth Ambient Music Handling
+    const audio = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicPlayer');
+    const statusText = document.getElementById('playerStatus');
+    let isPlaying = false;
+    let fadeInterval;
+
+    // Initial volume
+    audio.volume = 0;
+
+    musicBtn.onclick = () => {
+        clearInterval(fadeInterval);
+
+        if (isPlaying) {
+            // Fade Out
+            musicBtn.classList.remove('music-playing');
+            statusText.textContent = 'Paused';
+
+            fadeInterval = setInterval(() => {
+                if (audio.volume > 0.02) {
+                    audio.volume -= 0.02;
+                } else {
+                    audio.pause();
+                    audio.volume = 0;
+                    clearInterval(fadeInterval);
+                    isPlaying = false;
+                }
+            }, 50);
+        } else {
+            // Play and Fade In
+            audio.play().then(() => {
+                musicBtn.classList.add('music-playing');
+                statusText.textContent = 'Playing...';
+
+                isPlaying = true;
+                fadeInterval = setInterval(() => {
+                    if (audio.volume < 0.4) {
+                        audio.volume += 0.02;
+                    } else {
+                        clearInterval(fadeInterval);
+                    }
+                }, 50);
+            }).catch(e => {
+                console.warn("Audio interaction prevented:", e);
+            });
+        }
+    };
+};
+
 onkeydown = e => e.key.startsWith('Arr') && g(c + (e.key == 'ArrowRight' ? 1 : -1));
 k.ontouchstart = e => x = e.changedTouches[0].screenX;
 k.ontouchend = e => Math.abs(e.changedTouches[0].screenX - x) > 50 && g(c + (x > e.changedTouches[0].screenX ? 1 : -1));
