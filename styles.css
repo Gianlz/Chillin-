@@ -1,0 +1,194 @@
+:root {
+    --tx: #fff;
+    --ease: cubic-bezier(.4, 0, .2, 1)
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1
+}
+
+/* Layout Geral */
+body {
+    display: grid;
+    place-items: center;
+    font-family: 'Inter', system-ui;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.container,
+.carousel,
+.carousel-track,
+.carousel-slide img {
+    width: 100%
+}
+
+.container {
+    max-width: 1200px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* Flex layout para espaçamento vertical seguro */
+    perspective: 800px;
+}
+
+/* Tipografia */
+h1 {
+    font: 500 clamp(2.5em, 5vw, 4em) 'Playfair Display';
+    margin-bottom: 8px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    text-align: center
+}
+
+p {
+    color: #eee;
+    font-size: clamp(.9em, 1.5vw, 1em);
+    margin: 0 0 32px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    text-align: center
+}
+
+/* Carrossel */
+.carousel {
+    max-width: 1400px;
+    height: 620px;
+    position: relative
+}
+
+/* Altura aumentada para comportar scale */
+.carousel-track {
+    height: 100%;
+    display: grid;
+    place-items: center
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 320px;
+    height: 480px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    background: #111;
+    transition: .6s var(--ease);
+}
+
+.carousel-slide img {
+    height: 100%;
+    object-fit: cover;
+    transition: .4s var(--ease)
+}
+
+.carousel-slide:hover img {
+    transform: scale(1.05)
+}
+
+/* Estados do Carrossel */
+.active {
+    z-index: 5;
+    width: 380px;
+    height: 560px;
+    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.9);
+    transform: scale(1.1)
+}
+
+.prev,
+.next {
+    z-index: 2;
+    opacity: 1;
+    filter: brightness(.85)
+}
+
+.prev {
+    transform: translate(-400px) scale(.85) rotateY(25deg)
+}
+
+.next {
+    transform: translate(400px) scale(.85) rotateY(-25deg)
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none
+}
+
+/* Botão */
+button {
+    padding: 14px 42px;
+    background: #fff;
+    color: #000;
+    border: 0;
+    border-radius: 28px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+    z-index: 10;
+    /* Garante que fique sobre o carrossel se necessário */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3)
+}
+
+/* Responsivo */
+@media(max-width:768px) {
+    .carousel {
+        height: 280px
+    }
+
+    .carousel-slide {
+        width: 140px;
+        height: 190px
+    }
+
+    .active {
+        width: 160px;
+        height: 220px
+    }
+
+    .prev {
+        transform: translate(-150px) scale(.85) rotateY(20deg)
+    }
+
+    .next {
+        transform: translate(150px) scale(.85) rotateY(-20deg)
+    }
+}
+
+@media(max-width:480px) {
+    .carousel-slide {
+        width: 120px;
+        height: 160px
+    }
+
+    .active {
+        width: 140px;
+        height: 190px
+    }
+
+    .prev {
+        transform: translate(-110px) scale(.8) rotateY(18deg)
+    }
+
+    .next {
+        transform: translate(110px) scale(.8) rotateY(-18deg)
+    }
+}
