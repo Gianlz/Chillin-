@@ -215,53 +215,143 @@ button:hover {
 }
 
 /* Responsivo */
-@media(max-width:768px) {
+/* Responsivo */
+@media(max-width: 1024px) {
+    .container {
+        padding: 40px 20px;
+    }
+
     .carousel {
-        height: 280px
+        height: 500px;
+        max-width: 100%;
     }
 
     .carousel-slide {
-        width: 140px;
-        height: 190px
+        width: 260px;
+        height: 380px;
     }
 
     .active {
-        width: 160px;
-        height: 220px
+        width: 300px;
+        height: 440px;
     }
 
     .prev {
-        transform: translate(-150px) scale(.85) rotateY(20deg)
+        transform: translate(-320px) scale(.85) rotateY(25deg);
     }
 
     .next {
-        transform: translate(150px) scale(.85) rotateY(-20deg)
-    }
-
-    .music-control {
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
+        transform: translate(320px) scale(.85) rotateY(-25deg);
     }
 }
 
-@media(max-width:480px) {
+@media(max-width: 768px) {
+    h1 {
+        font-size: clamp(2em, 8vw, 3em);
+    }
+
+    .carousel {
+        height: 400px;
+    }
+
     .carousel-slide {
-        width: 120px;
-        height: 160px
+        width: 200px;
+        height: 300px;
     }
 
     .active {
-        width: 140px;
-        height: 190px
+        width: 240px;
+        height: 340px;
     }
 
     .prev {
-        transform: translate(-110px) scale(.8) rotateY(18deg)
+        transform: translate(-180px) scale(.85) rotateY(20deg);
     }
 
     .next {
-        transform: translate(110px) scale(.8) rotateY(-18deg)
+        transform: translate(180px) scale(.85) rotateY(-20deg);
+    }
+
+    /* Music Player Adjustments for Mobile */
+    .music-player {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 16px;
+        gap: 8px;
+    }
+
+    .player-track {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.8em;
+    }
+}
+
+@media(max-width: 480px) {
+    .container {
+        padding: 80px 16px 40px;
+        /* More top padding for header breathing room */
+        justify-content: center;
+    }
+
+    .header {
+        margin-bottom: -20px;
+    }
+
+    .carousel {
+        height: 320px;
+        margin-top: 0;
+    }
+
+    .carousel-slide {
+        width: 140px;
+        height: 220px;
+    }
+
+    .active {
+        width: 170px;
+        height: 250px;
+    }
+
+    .prev {
+        transform: translate(-120px) scale(.85) rotateY(15deg);
+    }
+
+    .next {
+        transform: translate(120px) scale(.85) rotateY(-15deg);
+    }
+
+    /* Stack controls better on small screens */
+    .music-player {
+        bottom: 20px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: auto;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.6);
+        white-space: nowrap;
+    }
+
+    .music-player:hover {
+        transform: translateX(-50%) translateY(-2px);
+    }
+}
+
+/* Landcape Mode Mobile Fix */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        height: auto;
+        padding: 20px;
+    }
+
+    .carousel {
+        height: 300px;
+    }
+
+    .music-player {
+        display: none;
+        /* Hide player in super short landscape to save view space */
     }
 }
