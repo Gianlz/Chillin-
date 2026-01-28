@@ -214,44 +214,194 @@ button:hover {
     opacity: 1;
 }
 
-/* Responsivo */
-/* Responsivo */
-@media(max-width: 1024px) {
+/* ========================================
+   RESPONSIVE DESIGN SYSTEM
+   ======================================== */
+
+/* Ultra-wide screens (1920px+) */
+@media (min-width: 1920px) {
     .container {
-        padding: 40px 20px;
+        max-width: 1600px;
+        padding: 60px 40px;
+        gap: 40px;
+    }
+
+    h1 {
+        font-size: 5em;
+    }
+
+    p {
+        font-size: 1.2em;
     }
 
     .carousel {
+        height: 720px;
+        max-width: 1800px;
+    }
+
+    .carousel-slide {
+        width: 400px;
+        height: 580px;
+    }
+
+    .active {
+        width: 460px;
+        height: 660px;
+    }
+
+    .prev {
+        transform: translate(-500px) scale(.85) rotateY(25deg);
+    }
+
+    .next {
+        transform: translate(500px) scale(.85) rotateY(-25deg);
+    }
+
+    button {
+        padding: 18px 56px;
+        font-size: 1.15em;
+    }
+
+    .music-player {
+        bottom: 40px;
+        right: 40px;
+        padding: 14px 28px;
+    }
+}
+
+/* Large desktop (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .container {
+        max-width: 1400px;
+        padding: 50px 30px;
+    }
+
+    .carousel {
+        height: 660px;
+    }
+
+    .carousel-slide {
+        width: 360px;
+        height: 520px;
+    }
+
+    .active {
+        width: 420px;
+        height: 600px;
+    }
+
+    .prev {
+        transform: translate(-460px) scale(.85) rotateY(25deg);
+    }
+
+    .next {
+        transform: translate(460px) scale(.85) rotateY(-25deg);
+    }
+}
+
+/* Standard desktop (1200px - 1439px) */
+@media (min-width: 1200px) and (max-width: 1439px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    .carousel {
+        height: 620px;
+    }
+}
+
+/* Small desktop / Large tablet landscape (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        max-width: 1000px;
+        padding: 40px 24px;
+    }
+
+    .carousel {
+        height: 540px;
+    }
+
+    .carousel-slide {
+        width: 280px;
+        height: 420px;
+    }
+
+    .active {
+        width: 340px;
         height: 500px;
+    }
+
+    .prev {
+        transform: translate(-360px) scale(.85) rotateY(25deg);
+    }
+
+    .next {
+        transform: translate(360px) scale(.85) rotateY(-25deg);
+    }
+}
+
+/* Tablet portrait / Small laptop (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 40px 20px;
+        gap: 16px;
+    }
+
+    h1 {
+        font-size: clamp(2.2em, 5vw, 3.2em);
+    }
+
+    .carousel {
+        height: 480px;
         max-width: 100%;
     }
 
     .carousel-slide {
-        width: 260px;
-        height: 380px;
+        width: 240px;
+        height: 360px;
     }
 
     .active {
-        width: 300px;
-        height: 440px;
+        width: 290px;
+        height: 420px;
     }
 
     .prev {
-        transform: translate(-320px) scale(.85) rotateY(25deg);
+        transform: translate(-280px) scale(.85) rotateY(22deg);
     }
 
     .next {
-        transform: translate(320px) scale(.85) rotateY(-25deg);
+        transform: translate(280px) scale(.85) rotateY(-22deg);
+    }
+
+    button {
+        padding: 14px 40px;
+    }
+
+    .music-player {
+        bottom: 24px;
+        right: 24px;
     }
 }
 
-@media(max-width: 768px) {
+/* Large phone / Small tablet (640px - 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+    .container {
+        padding: 36px 20px;
+        gap: 14px;
+    }
+
     h1 {
-        font-size: clamp(2em, 8vw, 3em);
+        font-size: clamp(2em, 7vw, 2.8em);
+    }
+
+    p {
+        font-size: 0.95em;
+        margin-bottom: 24px;
     }
 
     .carousel {
-        height: 400px;
+        height: 420px;
     }
 
     .carousel-slide {
@@ -260,38 +410,109 @@ button:hover {
     }
 
     .active {
-        width: 240px;
-        height: 340px;
+        width: 250px;
+        height: 360px;
     }
 
     .prev {
-        transform: translate(-180px) scale(.85) rotateY(20deg);
+        transform: translate(-200px) scale(.85) rotateY(20deg);
     }
 
     .next {
-        transform: translate(180px) scale(.85) rotateY(-20deg);
+        transform: translate(200px) scale(.85) rotateY(-20deg);
     }
 
-    /* Music Player Adjustments for Mobile */
     .music-player {
         bottom: 20px;
         right: 20px;
-        padding: 8px 16px;
-        gap: 8px;
+        padding: 10px 18px;
+        gap: 10px;
     }
 
     .player-track {
-        max-width: 150px;
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* Standard mobile (481px - 639px) */
+@media (min-width: 481px) and (max-width: 639px) {
+    .container {
+        padding: 40px 16px 90px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: clamp(1.9em, 8vw, 2.5em);
+    }
+
+    p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .carousel {
+        height: 380px;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .carousel-slide {
+        width: 180px;
+        height: 270px;
+    }
+
+    .active {
+        width: 220px;
+        height: 320px;
+    }
+
+    .prev {
+        transform: translate(-160px) scale(.8) rotateY(18deg);
+        opacity: 0.6;
+    }
+
+    .next {
+        transform: translate(160px) scale(.8) rotateY(-18deg);
+        opacity: 0.6;
+    }
+
+    button {
+        padding: 14px 44px;
+        font-size: 1em;
+    }
+
+    .music-player {
+        bottom: 20px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        gap: 10px;
+    }
+
+    .music-player:hover {
+        transform: translateX(-50%) translateY(-2px);
+    }
+
+    .player-track {
+        max-width: 140px;
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: 0.8em;
     }
 }
 
-@media(max-width: 480px) {
+/* Small mobile (361px - 480px) */
+@media (min-width: 361px) and (max-width: 480px) {
     .container {
-        padding: 60px 20px 100px;
+        padding: 50px 16px 100px;
         min-height: 100vh;
+        min-height: 100dvh;
         justify-content: space-between;
     }
 
@@ -304,61 +525,64 @@ button:hover {
     }
 
     p {
-        margin-bottom: 20px;
-        font-size: 0.95em;
+        margin-bottom: 16px;
+        font-size: 0.92em;
+        padding: 0 8px;
     }
 
     .carousel {
-        height: 380px;
+        height: 400px;
         width: 100%;
         margin: 10px 0;
-        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        -webkit-mask-image: none;
+        mask-image: none;
+        overflow: hidden;
     }
 
     .carousel-slide {
-        width: 200px;
-        /* Big, clear cards */
-        height: 300px;
-        border-radius: 20px;
+        width: 260px;
+        height: 380px;
+        border-radius: 24px;
+        box-shadow: none;
     }
 
     .active {
-        width: 220px;
-        height: 330px;
-        box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9);
+        width: 260px;
+        height: 380px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
         z-index: 10;
-        transform: scale(1);
+        transform: translateX(0) scale(1);
+        opacity: 1;
     }
 
     .prev {
-        transform: translate(-105%) scale(0.85) rotateY(15deg);
-        opacity: 0.5;
+        transform: translateX(-150%) scale(0.8);
+        opacity: 0;
         z-index: 1;
+        pointer-events: none;
     }
 
     .next {
-        transform: translate(105%) scale(0.85) rotateY(-15deg);
-        opacity: 0.5;
+        transform: translateX(150%) scale(0.8);
+        opacity: 0;
         z-index: 1;
+        pointer-events: none;
     }
 
     button {
         padding: 16px 48px;
         font-size: 1.1em;
-        margin-bottom: 40px;
-        /* Push up from music player */
+        margin-bottom: 30px;
     }
 
-    /* Fixed Bottom Center Player */
     .music-player {
-        bottom: 24px;
+        bottom: 20px;
         left: 50%;
         right: auto;
         transform: translateX(-50%);
         width: auto;
         max-width: 90%;
-        padding: 12px 24px;
+        padding: 12px 22px;
         background: rgba(0, 0, 0, 0.75);
         border: 1px solid rgba(255, 255, 255, 0.1);
         gap: 12px;
@@ -372,22 +596,555 @@ button:hover {
 
     .player-track {
         max-width: 120px;
+        font-size: 0.8em;
     }
 }
 
-/* Landcape Mode Mobile Fix */
-@media (max-height: 500px) and (orientation: landscape) {
+/* Extra small mobile (up to 360px) */
+@media (max-width: 360px) {
     .container {
-        height: auto;
-        padding: 20px;
+        padding: 40px 12px 100px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        justify-content: space-between;
+    }
+
+    .header {
+        margin-top: 5px;
+    }
+
+    h1 {
+        font-size: 1.9em;
+    }
+
+    p {
+        margin-bottom: 14px;
+        font-size: 0.85em;
+        padding: 0 4px;
     }
 
     .carousel {
+        height: 340px;
+        width: 100%;
+        margin: 8px 0;
+        -webkit-mask-image: none;
+        mask-image: none;
+        overflow: hidden;
+    }
+
+    .carousel-slide {
+        width: 220px;
+        height: 320px;
+        border-radius: 20px;
+        box-shadow: none;
+    }
+
+    .active {
+        width: 220px;
+        height: 320px;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.9);
+        z-index: 10;
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+
+    .prev {
+        transform: translateX(-150%) scale(0.75);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .next {
+        transform: translateX(150%) scale(0.75);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    button {
+        padding: 14px 40px;
+        font-size: 1em;
+        margin-bottom: 24px;
+    }
+
+    .music-player {
+        bottom: 16px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: auto;
+        max-width: 92%;
+        padding: 10px 16px;
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        gap: 10px;
+    }
+
+    .music-player:hover {
+        transform: translateX(-50%) translateY(-2px);
+    }
+
+    .player-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .player-track {
+        max-width: 100px;
+        font-size: 0.75em;
+    }
+
+    .player-status {
+        font-size: 0.6em;
+    }
+}
+
+/* ========================================
+   LANDSCAPE ORIENTATIONS
+   ======================================== */
+
+/* Desktop/Laptop Landscape (height >= 700px) */
+@media (orientation: landscape) and (min-height: 700px) and (min-width: 1024px) {
+    .container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+/* Tablet Landscape (height 600px - 699px) */
+@media (orientation: landscape) and (min-height: 600px) and (max-height: 699px) and (max-width: 1366px) {
+    .container {
+        padding: 24px 30px;
+        gap: 12px;
+    }
+
+    h1 {
+        font-size: clamp(1.8em, 4vw, 2.5em);
+        margin-bottom: 4px;
+    }
+
+    p {
+        margin-bottom: 16px;
+        font-size: 0.9em;
+    }
+
+    .carousel {
+        height: 380px;
+    }
+
+    .carousel-slide {
+        width: 200px;
+        height: 280px;
+    }
+
+    .active {
+        width: 240px;
+        height: 340px;
+    }
+
+    .prev {
+        transform: translate(-260px) scale(.85) rotateY(20deg);
+    }
+
+    .next {
+        transform: translate(260px) scale(.85) rotateY(-20deg);
+    }
+
+    button {
+        padding: 12px 36px;
+    }
+
+    .music-player {
+        bottom: 16px;
+        right: 16px;
+        padding: 8px 14px;
+    }
+}
+
+/* Large phone landscape (height 500px - 599px) */
+@media (orientation: landscape) and (min-height: 500px) and (max-height: 599px) and (max-width: 1024px) {
+    .container {
+        padding: 20px 24px;
+        gap: 10px;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    h1 {
+        font-size: clamp(1.6em, 4vw, 2.2em);
+        margin-bottom: 2px;
+    }
+
+    p {
+        margin-bottom: 12px;
+        font-size: 0.85em;
+    }
+
+    .carousel {
+        height: 320px;
+    }
+
+    .carousel-slide {
+        width: 180px;
+        height: 260px;
+    }
+
+    .active {
+        width: 210px;
         height: 300px;
+    }
+
+    .prev {
+        transform: translate(-240px) scale(.82) rotateY(18deg);
+    }
+
+    .next {
+        transform: translate(240px) scale(.82) rotateY(-18deg);
+    }
+
+    button {
+        padding: 10px 32px;
+        font-size: 0.95em;
+    }
+
+    .music-player {
+        bottom: 12px;
+        right: 12px;
+        padding: 6px 12px;
+        gap: 8px;
+    }
+
+    .player-track {
+        max-width: 120px;
+        font-size: 0.75em;
+    }
+
+    .player-status {
+        font-size: 0.6em;
+    }
+}
+
+/* Mobile landscape - medium (height 400px - 499px) */
+@media (orientation: landscape) and (min-height: 400px) and (max-height: 499px) and (max-width: 926px) {
+    .container {
+        padding: 16px 20px;
+        gap: 8px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: clamp(1.4em, 3.5vw, 1.9em);
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-bottom: 10px;
+        font-size: 0.8em;
+    }
+
+    .carousel {
+        height: 260px;
+    }
+
+    .carousel-slide {
+        width: 140px;
+        height: 200px;
+        border-radius: 16px;
+    }
+
+    .active {
+        width: 170px;
+        height: 240px;
+        box-shadow: 0 15px 35px -8px rgba(0, 0, 0, 0.85);
+    }
+
+    .prev {
+        transform: translate(-180px) scale(.8) rotateY(16deg);
+    }
+
+    .next {
+        transform: translate(180px) scale(.8) rotateY(-16deg);
+    }
+
+    button {
+        padding: 10px 28px;
+        font-size: 0.9em;
+    }
+
+    .music-player {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        gap: 6px;
+    }
+
+    .player-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .player-track {
+        max-width: 100px;
+        font-size: 0.7em;
+    }
+
+    .player-status {
+        font-size: 0.55em;
+    }
+}
+
+/* Mobile landscape - small (height 320px - 399px) */
+@media (orientation: landscape) and (min-height: 320px) and (max-height: 399px) and (max-width: 926px) {
+    .container {
+        padding: 12px 16px;
+        gap: 6px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        justify-content: center;
+    }
+
+    .header {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        font-size: 1.4em;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-bottom: 8px;
+        font-size: 0.75em;
+    }
+
+    .carousel {
+        height: 200px;
+    }
+
+    .carousel-slide {
+        width: 110px;
+        height: 160px;
+        border-radius: 12px;
+    }
+
+    .active {
+        width: 130px;
+        height: 190px;
+        box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+        transform: translate(-140px) scale(.78) rotateY(14deg);
+    }
+
+    .next {
+        transform: translate(140px) scale(.78) rotateY(-14deg);
+    }
+
+    button {
+        padding: 8px 24px;
+        font-size: 0.85em;
+    }
+
+    .music-player {
+        bottom: 8px;
+        right: 8px;
+        padding: 5px 10px;
+        gap: 6px;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .player-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .player-info {
+        display: none;
+    }
+}
+
+/* Mobile landscape - very small (height < 320px) */
+@media (orientation: landscape) and (max-height: 319px) and (max-width: 926px) {
+    .container {
+        padding: 8px 12px;
+        gap: 4px;
+        min-height: 100vh;
+        min-height: 100dvh;
+        justify-content: center;
+    }
+
+    .header {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin-bottom: 0;
+    }
+
+    p {
+        display: none;
+    }
+
+    .carousel {
+        height: 160px;
+    }
+
+    .carousel-slide {
+        width: 90px;
+        height: 130px;
+        border-radius: 10px;
+    }
+
+    .active {
+        width: 105px;
+        height: 150px;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+    }
+
+    .prev {
+        transform: translate(-110px) scale(.75) rotateY(12deg);
+    }
+
+    .next {
+        transform: translate(110px) scale(.75) rotateY(-12deg);
+    }
+
+    button {
+        padding: 6px 20px;
+        font-size: 0.8em;
     }
 
     .music-player {
         display: none;
-        /* Hide player in super short landscape to save view space */
+    }
+}
+
+/* ========================================
+   SPECIAL DEVICE HANDLING
+   ======================================== */
+
+/* Foldable phones - outer display (narrow width, portrait) */
+@media (max-width: 300px) {
+    .container {
+        padding: 30px 8px 90px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    p {
+        font-size: 0.8em;
+        padding: 0;
+    }
+
+    .carousel {
+        height: 280px;
+    }
+
+    .carousel-slide {
+        width: 180px;
+        height: 260px;
+        border-radius: 16px;
+    }
+
+    .active {
+        width: 180px;
+        height: 260px;
+    }
+
+    button {
+        padding: 12px 32px;
+        font-size: 0.9em;
+    }
+
+    .music-player {
+        padding: 8px 14px;
+    }
+
+    .player-track {
+        max-width: 80px;
+        font-size: 0.7em;
+    }
+}
+
+/* High DPI / Retina displays - ensure crisp rendering */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .carousel-slide {
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .carousel-slide {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .carousel-slide img {
+        transition: none;
+    }
+
+    .carousel-slide:hover img {
+        transform: none;
+    }
+
+    .music-player {
+        transition: background 0.2s ease;
+    }
+
+    button {
+        transition: background 0.2s ease;
+    }
+
+    button:hover {
+        transform: none;
+    }
+}
+
+/* Touch devices - larger tap targets */
+@media (hover: none) and (pointer: coarse) {
+    button {
+        min-height: 48px;
+        min-width: 120px;
+    }
+
+    .music-player {
+        min-height: 44px;
+    }
+}
+
+/* Print styles */
+@media print {
+    #bg,
+    .music-player {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .carousel {
+        height: auto;
+    }
+
+    .carousel-slide {
+        position: relative;
+        display: inline-block;
+        width: 200px;
+        height: auto;
+        transform: none !important;
+        opacity: 1 !important;
     }
 }
