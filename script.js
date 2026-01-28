@@ -66,7 +66,11 @@ onload = () => {
     // Random Track Selection
     const tracks = [
         { file: 'Soft Floors, Quiet Minds.mp3', name: 'Soft Floors, Quiet Minds' },
-        { file: 'Velvet Backbone.mp3', name: 'Velvet Backbone' }
+        { file: 'Velvet Backbone.mp3', name: 'Velvet Backbone' },
+        { file: 'Besos en Domingo.mp3', name: 'Besos en Domingo' },
+        { file: 'Midnight Mango Sky.mp3', name: 'Midnight Mango Sky' },
+        { file: 'Rápido Como Fuego.mp3', name: 'Rápido Como Fuego' },
+        { file: 'Toro En Mi Voz.mp3', name: 'Toro En Mi Voz' }
     ];
     const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
 
