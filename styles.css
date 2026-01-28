@@ -290,52 +290,88 @@ button:hover {
 
 @media(max-width: 480px) {
     .container {
-        padding: 80px 16px 40px;
-        /* More top padding for header breathing room */
-        justify-content: center;
+        padding: 60px 20px 100px;
+        min-height: 100vh;
+        justify-content: space-between;
     }
 
     .header {
-        margin-bottom: -20px;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-size: 0.95em;
     }
 
     .carousel {
-        height: 320px;
-        margin-top: 0;
+        height: 380px;
+        width: 100%;
+        margin: 10px 0;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     }
 
     .carousel-slide {
-        width: 140px;
-        height: 220px;
+        width: 200px;
+        /* Big, clear cards */
+        height: 300px;
+        border-radius: 20px;
     }
 
     .active {
-        width: 170px;
-        height: 250px;
+        width: 220px;
+        height: 330px;
+        box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9);
+        z-index: 10;
+        transform: scale(1);
     }
 
     .prev {
-        transform: translate(-120px) scale(.85) rotateY(15deg);
+        transform: translate(-105%) scale(0.85) rotateY(15deg);
+        opacity: 0.5;
+        z-index: 1;
     }
 
     .next {
-        transform: translate(120px) scale(.85) rotateY(-15deg);
+        transform: translate(105%) scale(0.85) rotateY(-15deg);
+        opacity: 0.5;
+        z-index: 1;
     }
 
-    /* Stack controls better on small screens */
+    button {
+        padding: 16px 48px;
+        font-size: 1.1em;
+        margin-bottom: 40px;
+        /* Push up from music player */
+    }
+
+    /* Fixed Bottom Center Player */
     .music-player {
-        bottom: 20px;
+        bottom: 24px;
         left: 50%;
         right: auto;
         transform: translateX(-50%);
         width: auto;
+        max-width: 90%;
+        padding: 12px 24px;
+        background: rgba(0, 0, 0, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        gap: 12px;
         justify-content: center;
-        background: rgba(0, 0, 0, 0.6);
-        white-space: nowrap;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
 
     .music-player:hover {
         transform: translateX(-50%) translateY(-2px);
+    }
+
+    .player-track {
+        max-width: 120px;
     }
 }
 
