@@ -72,15 +72,33 @@ onload = () => {
         { file: 'Rápido Como Fuego.mp3', name: 'Rápido Como Fuego' },
         { file: 'Toro En Mi Voz.mp3', name: 'Toro En Mi Voz' }
     ];
-    const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
 
-    // Set Audio Source and Text
-    audio.querySelector('source').src = `audio/${randomTrack.file}`;
-    audio.load();
-    trackText.textContent = randomTrack.name;
+    let currentTrackIndex = Math.floor(Math.random() * tracks.length);
 
-    // Initial volume
+    const loadTrack = (index) => {
+        const track = tracks[index];
+        audio.querySelector('source').src = `audio/${track.file}`;
+        audio.load();
+        trackText.textContent = track.name;
+    };
+
+    // Initial load
+    loadTrack(currentTrackIndex);
     audio.volume = 0;
+
+    const nextBtn = document.getElementById('nextTrackBtn');
+    if (nextBtn) {
+        nextBtn.onclick = (e) => {
+            e.stopPropagation();
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+            loadTrack(currentTrackIndex);
+
+            if (isPlaying) {
+                audio.volume = 0.4;
+                audio.play();
+            }
+        };
+    }
 
     musicBtn.onclick = () => {
         clearInterval(fadeInterval);

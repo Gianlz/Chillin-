@@ -203,6 +203,39 @@ button:hover {
     opacity: 0.9;
 }
 
+.player-control-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.player-control-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.player-control-icon:active {
+    transform: scale(0.95);
+}
+
+.player-control-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    opacity: 0.8;
+    display: block;
+}
+
+.player-control-icon:hover svg {
+    opacity: 1;
+}
+
 /* Playing Animation State */
 .music-playing .player-icon svg {
     opacity: 1;
@@ -1074,7 +1107,8 @@ button:hover {
 }
 
 /* High DPI / Retina displays - ensure crisp rendering */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
     .carousel-slide {
         -webkit-font-smoothing: antialiased;
     }
@@ -1121,6 +1155,7 @@ button:hover {
 
 /* Print styles */
 @media print {
+
     #bg,
     .music-player {
         display: none !important;
