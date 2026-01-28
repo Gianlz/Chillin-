@@ -59,8 +59,21 @@ onload = () => {
     const audio = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicPlayer');
     const statusText = document.getElementById('playerStatus');
+    const trackText = document.getElementById('playerTrack');
     let isPlaying = false;
     let fadeInterval;
+
+    // Random Track Selection
+    const tracks = [
+        { file: 'Soft Floors, Quiet Minds.mp3', name: 'Soft Floors, Quiet Minds' },
+        { file: 'Velvet Backbone.mp3', name: 'Velvet Backbone' }
+    ];
+    const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+
+    // Set Audio Source and Text
+    audio.querySelector('source').src = `audio/${randomTrack.file}`;
+    audio.load();
+    trackText.textContent = randomTrack.name;
 
     // Initial volume
     audio.volume = 0;
